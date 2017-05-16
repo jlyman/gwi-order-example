@@ -1,6 +1,8 @@
+import { CustomerType } from '../constants';
+
 function Customer(data) {
   this.id = data && data.id ? data.id : 0;
-  this.type = data && data.type ? data.type : '';
+  this.type = data && data.type ? data.type : CustomerType.master;
 
   this.name = data && data.name ? data.name : '';
   this.address1 = data && data.address1 ? data.address1 : '';

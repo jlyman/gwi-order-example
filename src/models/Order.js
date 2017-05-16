@@ -1,6 +1,9 @@
+import { MoveType } from '../constants';
+
 function Order(data) {
   this.id = data && data.id ? data.id : 0;
-  this.type = data && data.type ? data.type : '';
+  this.type = data && data.type ? data.type : MoveType.export;
+
   this.refNo = data && data.refNo ? data.refNo : 0;
   this.equipmentNo = data && data.equipmentNo ? data.equipmentNo : 0;
   this.billTo = data && data.billTo ? data.billTo : '';
