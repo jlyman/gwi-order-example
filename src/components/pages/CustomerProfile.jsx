@@ -5,9 +5,9 @@ class CustomerProfile extends Component {
   render() {
     return (
       <div>
-        <FormField labelText="Name" />
-        <FormField labelText="Address" />
-        <FormField labelText="City" />
+        <FormField fieldName="name" labelText="Name" />
+        <FormField fieldName="address" labelText="Address" />
+        <FormField fieldName="city" labelText="City" />
       </div>
     );
   }

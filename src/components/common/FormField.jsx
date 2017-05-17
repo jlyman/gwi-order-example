@@ -5,8 +5,8 @@ class FormField extends PureComponent {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor={this.props.inputId}>{this.props.labelText}</label>
-        <input type="text" className="form-control" id={this.props.inputId} />
+        <label htmlFor={this.props.fieldName}>{this.props.labelText}</label>
+        <input type="text" className="form-control" id={this.props.fieldName} />
       </div>
     );
   }
@@ -14,12 +14,11 @@ class FormField extends PureComponent {
 
 FormField.defaultProps = {
   labelText: '',
-  inputId: '',
 };
 
 FormField.propTypes = {
+  fieldName: PropTypes.string.isRequired,
   labelText: PropTypes.string,
-  inputId: PropTypes.string,
 };
 
 export default FormField;
