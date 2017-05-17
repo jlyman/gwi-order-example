@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormField from '../common/FormField';
 import FormDropdown from '../common/FormDropdown';
+import ContactsEntryTable from '../customerProfile/ContactsEntryTable';
 import { PreferredCommunicationMode } from '../../constants';
 
 class CustomerProfile extends Component {
@@ -11,6 +12,7 @@ class CustomerProfile extends Component {
         <FormField fieldName="address" labelText="Address" />
         <FormField fieldName="city" labelText="City" />
         <FormField fieldName="state" labelText="State" />
+        
         <hr />
         <FormDropdown
           fieldName="preferredCommunication"
@@ -22,6 +24,10 @@ class CustomerProfile extends Component {
             PreferredCommunicationMode.fax,
           ]}
         />
+        
+        <hr />
+        <h4>Contacts</h4>
+        <ContactsEntryTable contacts={[]} />
       </div>
     );
   }
