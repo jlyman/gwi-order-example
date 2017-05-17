@@ -9,6 +9,12 @@ export function newCustomer(state = new Customer(), action) {
 	switch (action.type) {
 		case ADD_NEW_CUSTOMER:
 			return new Customer();
+		case UPDATE_NEW_CUSTOMER_FIELD:
+			return Object.assign(
+				new Customer(),
+				state,
+				{ [action.field]: action.value
+			});
 		default:
 			return state;
 	}
