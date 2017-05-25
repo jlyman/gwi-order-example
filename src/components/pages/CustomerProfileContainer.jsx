@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import CustomerProfile from './CustomerProfile';
-import { addCustomer, updateNewCustomerField } from '../../redux/actions/customers';
+import { addCustomer, updateNewCustomerField, getCustomers } from '../../redux/actions/customers';
+import { customersById } from '../../redux/selectors/customers';
 
 const mapStateToProps = (state) => {
 	return {
+		customers: customersById(state),
 		newCustomer: state.customers.newCustomer,
 		errors: state.customers.newCustomerErrors,
 	}
@@ -16,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onUpdateField: (field, value) => {
 			dispatch(updateNewCustomerField(field, value));
+		},
+		onRetrieveCustomers: () => {
+			dispatch(getCustomers());
 		},
 	}
 };

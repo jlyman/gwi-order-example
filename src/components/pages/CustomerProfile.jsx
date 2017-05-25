@@ -1,15 +1,27 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormField from '../common/FormField';
 import FormDropdown from '../common/FormDropdown';
+import ProfileSummary from '../customerProfile/ProfileSummary';
 import ContactsEntryTable from '../customerProfile/ContactsEntryTable';
 import { PreferredCommunicationMode } from '../../constants';
 import { Customer } from '../../models';
 
 class CustomerProfile extends Component {
+  componentDidMount() {
+    this.props.onRetrieveCustomers();
+  }
+
   render() {
     return (
       <div>
+        <h2>Customers</h2>
+
+        <ul>
+          {_.map(this.props.customers, c => <ProfileSummary customer={c} />)}
+        </ul>
+
         <h2>New Customer</h2>
 
         <FormField fieldName="name" labelText="Name" required value={this.props.newCustomer.name} onChange={this.props.onUpdateField} errors={this.props.errors} />
@@ -46,10 +58,12 @@ class CustomerProfile extends Component {
 }
 
 CustomerProfile.propTypes = {
+  customers: PropTypes.object.isRequired,
   newCustomer: PropTypes.instanceOf(Customer).isRequired,
   errors: PropTypes.object,
   onAddCustomerClick: PropTypes.func.isRequired,
   onUpdateField: PropTypes.func.isRequired,
+  onRetrieveCustomers: PropTypes.func.isRequired,
 }
 
 export default CustomerProfile;

@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
 import { Customer } from '../../models';
 import {
-	ADD_CUSTOMER_API_REQUEST_SUCCESS,
+	ADD_NEW_CUSTOMER_API_REQUEST_SUCCESS,
 	UPDATE_NEW_CUSTOMER_FIELD,
 	ADD_CUSTOMER_VALIDATION_ERROR_OCCURRED,
+	GET_CUSTOMER_API_REQUEST_SUCCESS,
 } from '../actionTypes';
 
 export function newCustomer(state = new Customer(), action) {
 	switch (action.type) {
-		case ADD_CUSTOMER_API_REQUEST_SUCCESS:
+		case ADD_NEW_CUSTOMER_API_REQUEST_SUCCESS:
 			return new Customer();
 		case UPDATE_NEW_CUSTOMER_FIELD:
 			return Object.assign(
@@ -25,7 +26,7 @@ export function newCustomerErrors(state = {}, action) {
 	switch (action.type) {
 		case ADD_CUSTOMER_VALIDATION_ERROR_OCCURRED:
 			return { [action.field]: action.error };
-		case ADD_CUSTOMER_API_REQUEST_SUCCESS:
+		case ADD_NEW_CUSTOMER_API_REQUEST_SUCCESS:
 			return {};
 		default:
 			return state;
@@ -34,7 +35,12 @@ export function newCustomerErrors(state = {}, action) {
 
 export function customersById(state = {}, action) {
 	switch (action.type) {
-		case ADD_CUSTOMER_API_REQUEST_SUCCESS: {
+		case GET_CUSTOMER_API_REQUEST_SUCCESS:
+			return action.payload.reduce((customers, current) => {
+				customers[current.id] = new Customer(current);
+				return customers;
+			}, {})
+		case ADD_NEW_CUSTOMER_API_REQUEST_SUCCESS: {
 			const customer = action.payload;
 				return {
 					...state,
