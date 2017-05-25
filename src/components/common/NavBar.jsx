@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const NavBar = () => (
 	<nav className="navbar navbar-inverse navbar-fixed-top">
@@ -14,9 +15,9 @@ const NavBar = () => (
       </div>
       <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#profiles">Profiles</a></li>
-          <li><a href="#orders">Orders</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/customers">Profiles</Link></li>
+          <li><Link to="/orders">Orders</Link></li>
         </ul>
       </div>
     </div>

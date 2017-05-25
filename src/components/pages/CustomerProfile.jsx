@@ -8,6 +8,8 @@ class CustomerProfile extends Component {
   render() {
     return (
       <div>
+        <h2>New Customer</h2>
+        
         <FormField fieldName="name" labelText="Name" />
         <FormField fieldName="address" labelText="Address" />
         <FormField fieldName="city" labelText="City" />

@@ -8,6 +8,8 @@ class NewOrder extends Component {
   render() {
     return (
       <div>
+        <h2>New Order</h2>
+        
         <FormDropdown
           fieldName="moveType"
           labelText="Move Type"
