@@ -18,10 +18,10 @@ class CustomerProfile extends Component {
           fieldName="preferredCommunication"
           labelText="Preferred Communication"
           choices={[
-            '',
-            PreferredCommunicationMode.phone,
-            PreferredCommunicationMode.email,
-            PreferredCommunicationMode.fax,
+            { value: '', text: '' },
+            { value: PreferredCommunicationMode.phone, text: 'Phone' },
+            { value: PreferredCommunicationMode.email, text: 'Email' },
+            { value: PreferredCommunicationMode.fax, text: 'Fax' },
           ]}
         />
         

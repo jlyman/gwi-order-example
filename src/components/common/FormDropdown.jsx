@@ -7,7 +7,9 @@ class FormDropdown extends Component {
 			<div className="form-group">
         <label htmlFor={this.props.fieldName}>{this.props.labelText}</label>
         <select id={this.props.fieldName} className="form-control">
-        	{this.props.choices.map(choice => (<option value={choice} key={choice}>{choice}</option>))}
+        	{this.props.choices.map(choice => (
+            <option value={choice.value} key={choice.value}>{choice.text}</option>)
+          )}
         </select>
       </div>
 		);
@@ -20,7 +22,10 @@ FormDropdown.defaultProps = {
 
 FormDropdown.propTypes = {
   fieldName: PropTypes.string.isRequired,
-  choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+  choices: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  })).isRequired,
   labelText: PropTypes.string,
 };
 
