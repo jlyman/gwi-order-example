@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FormField from '../common/FormField';
 import FormDropdown from '../common/FormDropdown';
 import ContactsEntryTable from '../customerProfile/ContactsEntryTable';
 import { PreferredCommunicationMode } from '../../constants';
+import { Customer } from '../../models';
 
 class CustomerProfile extends Component {
   render() {
     return (
       <div>
         <h2>New Customer</h2>
-        
+
         <FormField fieldName="name" labelText="Name" />
         <FormField fieldName="address" labelText="Address" />
         <FormField fieldName="city" labelText="City" />
@@ -33,6 +35,12 @@ class CustomerProfile extends Component {
       </div>
     );
   }
+}
+
+CustomerProfile.propTypes = {
+  newCustomer: PropTypes.instanceOf(Customer).isRequired,
+  onAddCustomerClick: PropTypes.func.isRequired,
+  onUpdateField: PropTypes.func.isRequired,
 }
 
 export default CustomerProfile;

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import CustomerProfile from './CustomerProfile';
-import { addCustomer, updateNewCustomerField } from '../../redux/actions/customer';
+import { addCustomer, updateNewCustomerField } from '../../redux/actions/customers';
 
 const mapStateToProps = (state) => {
 	return {
-		newCustomer: state.newCustomer,
+		newCustomer: state.customers.newCustomer,
 	}
 }
 
