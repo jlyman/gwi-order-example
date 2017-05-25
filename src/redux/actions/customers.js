@@ -38,7 +38,10 @@ export function addCustomer() {
 				method: 'POST',
 				types: [ADD_CUSTOMER_API_REQUEST_START, ADD_CUSTOMER_API_REQUEST_SUCCESS, ADD_CUSTOMER_API_REQUEST_ERROR],
 				body: JSON.stringify(customer),
-				// headers: { 'Content-Type': 'application/json' },
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+				},
 			}
 		});
 	}

@@ -35,7 +35,6 @@ export function newCustomerErrors(state = {}, action) {
 export function customersById(state = {}, action) {
 	switch (action.type) {
 		case ADD_CUSTOMER_API_REQUEST_SUCCESS: {
-			debugger;
 			const customer = action.payload;
 				return {
 					...state,
