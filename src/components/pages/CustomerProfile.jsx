@@ -32,6 +32,14 @@ class CustomerProfile extends Component {
         <hr />
         <h4>Contacts</h4>
         <ContactsEntryTable contacts={[]} />
+
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          onClick={this.props.onAddCustomerClick}
+        >
+          Save New Customer
+        </button>
       </div>
     );
   }
