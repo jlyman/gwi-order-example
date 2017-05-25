@@ -7,7 +7,7 @@ class FormField extends PureComponent {
 
     this._onChange = this._onChange.bind(this);
   }
-  
+
   _onChange(e) {
     this.props.onChange(this.props.fieldName, e.target.value);
   }
@@ -16,7 +16,13 @@ class FormField extends PureComponent {
     return (
       <div className="form-group">
         <label htmlFor={this.props.fieldName}>{this.props.labelText}</label>
-        <input type="text" className="form-control" id={this.props.fieldName} onChange={this._onChange} />
+        <input
+          type="text"
+          className="form-control"
+          id={this.props.fieldName}
+          value={this.props.value}
+          onChange={this._onChange}
+        />
       </div>
     );
   }
@@ -29,6 +35,7 @@ FormField.defaultProps = {
 FormField.propTypes = {
   fieldName: PropTypes.string.isRequired,
   labelText: PropTypes.string,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 

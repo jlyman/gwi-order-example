@@ -12,10 +12,10 @@ class CustomerProfile extends Component {
       <div>
         <h2>New Customer</h2>
 
-        <FormField fieldName="name" labelText="Name" onChange={this.props.onUpdateField} />
-        <FormField fieldName="address1" labelText="Address" onChange={this.props.onUpdateField} />
-        <FormField fieldName="city" labelText="City" onChange={this.props.onUpdateField} />
-        <FormField fieldName="state" labelText="State" onChange={this.props.onUpdateField} />
+        <FormField fieldName="name" labelText="Name" value={this.props.newCustomer.name} onChange={this.props.onUpdateField} />
+        <FormField fieldName="address1" labelText="Address" value={this.props.newCustomer.address1} onChange={this.props.onUpdateField} />
+        <FormField fieldName="city" labelText="City" value={this.props.newCustomer.city} onChange={this.props.onUpdateField} />
+        <FormField fieldName="state" labelText="State" value={this.props.newCustomer.state} onChange={this.props.onUpdateField} />
         
         <hr />
         <FormDropdown
