@@ -12,13 +12,13 @@ class NewOrder extends Component {
           fieldName="moveType"
           labelText="Move Type"
           choices={[
-            { value: MoveType.export, text: 'Export' },
-            { value: MoveType.import, text: 'Import' },
-            { value: MoveType.domestic, text: 'Domestic' },
-            { value: MoveType.inbound, text: 'Inbound' },
-            { value: MoveType.outbound, text: 'Outbound' },
-            { value: MoveType.railToPort, text: 'Rail to Port' },
-            { value: MoveType.repo, text: 'Repo' },
+            { value: MoveType.export.toString(), text: 'Export' },
+            { value: MoveType.import.toString(), text: 'Import' },
+            { value: MoveType.domestic.toString(), text: 'Domestic' },
+            { value: MoveType.inbound.toString(), text: 'Inbound' },
+            { value: MoveType.outbound.toString(), text: 'Outbound' },
+            { value: MoveType.railToPort.toString(), text: 'Rail to Port' },
+            { value: MoveType.repo.toString(), text: 'Repo' },
           ]}
         />
         <FormField fieldName="refNo" labelText="Bkg/BOL/Ref No" />
