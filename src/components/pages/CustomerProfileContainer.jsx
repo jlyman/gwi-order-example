@@ -5,6 +5,7 @@ import { addCustomer, updateNewCustomerField } from '../../redux/actions/custome
 const mapStateToProps = (state) => {
 	return {
 		newCustomer: state.customers.newCustomer,
+		errors: state.customers.newCustomerErrors,
 	}
 }
 

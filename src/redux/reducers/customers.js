@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 import { Customer } from '../../models';
 import {
-	ADD_NEW_CUSTOMER,
+	ADD_CUSTOMER_API_REQUEST_SUCCESS,
 	UPDATE_NEW_CUSTOMER_FIELD,
+	ADD_CUSTOMER_VALIDATION_ERROR_OCCURRED,
 } from '../actionTypes';
 
 export function newCustomer(state = new Customer(), action) {
 	switch (action.type) {
-		case ADD_NEW_CUSTOMER:
+		case ADD_CUSTOMER_API_REQUEST_SUCCESS:
 			return new Customer();
 		case UPDATE_NEW_CUSTOMER_FIELD:
 			return Object.assign(
@@ -20,13 +21,27 @@ export function newCustomer(state = new Customer(), action) {
 	}
 }
 
+export function newCustomerErrors(state = {}, action) {
+	switch (action.type) {
+		case ADD_CUSTOMER_VALIDATION_ERROR_OCCURRED:
+			return { [action.field]: action.error };
+		case ADD_CUSTOMER_API_REQUEST_SUCCESS:
+			return {};
+		default:
+			return state;
+	}
+}
+
 export function customersById(state = {}, action) {
 	switch (action.type) {
-		case ADD_NEW_CUSTOMER:
-			return {
-				...state,
-				[action.customer.id]: action.customer,
-			};
+		case ADD_CUSTOMER_API_REQUEST_SUCCESS: {
+			debugger;
+			const customer = action.payload;
+				return {
+					...state,
+					[customer.id]: customer,
+				};
+			}
 		default:
 			return state;
 	}
@@ -35,4 +50,5 @@ export function customersById(state = {}, action) {
 export default combineReducers({
 	customersById,
 	newCustomer,
+	newCustomerErrors,
 });

@@ -13,9 +13,13 @@ class FormField extends PureComponent {
   }
 
   render() {
+    const errorMessage = this.props.errors.hasOwnProperty(this.props.fieldName)
+      ? <span className="error">{this.props.errors[this.props.fieldName]}</span>
+      : null;
+
     return (
       <div className="form-group">
-        <label htmlFor={this.props.fieldName}>{this.props.labelText}</label>
+        <label htmlFor={this.props.fieldName}>{this.props.labelText} {this.props.required ? '*' :''}</label>
         <input
           type="text"
           className="form-control"
@@ -23,6 +27,7 @@ class FormField extends PureComponent {
           value={this.props.value}
           onChange={this._onChange}
         />
+        {errorMessage}
       </div>
     );
   }
@@ -30,12 +35,16 @@ class FormField extends PureComponent {
 
 FormField.defaultProps = {
   labelText: '',
+  required: false,
+  errors: {},
 };
 
 FormField.propTypes = {
   fieldName: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   value: PropTypes.string,
+  required: PropTypes.bool,
+  errors: PropTypes.object,
   onChange: PropTypes.func.isRequired,
 };
 
